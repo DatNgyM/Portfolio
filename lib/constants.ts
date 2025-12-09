@@ -1,6 +1,7 @@
 export const navLinks = [
-  { href: "/", label: "Home" },
+  { href: "#home", label: "Home" },
   { href: "/blog", label: "Blog" },
+  { href: "#about", label: "About" },
 ];
 
 export const skillsData = [
@@ -14,7 +15,7 @@ export const skillsData = [
 
 export const socialLinks = {
   github: "https://github.com/DatNgyM",
-  linkedin: "https://www.linkedin.com/in/minhdatnguyen676767",
+  linkedin: "https://www.linkedin.com/in/minhdatnguyen686868/",
   email: "mailto:nguyenminhdat03112003@gmail.com",
 };
 

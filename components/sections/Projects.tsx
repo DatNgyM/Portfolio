@@ -11,7 +11,7 @@ const projects = [
     title: "E-Commerce Platform",
     description:
       "A modern e-commerce solution with real-time inventory management and seamless checkout experience.",
-    image: "bg-gradient-to-br from-green-500 to-emerald-500",
+    image: "bg-gradient-to-br from-black to-gray-700",
     technologies: ["Next.js", "TypeScript", "Stripe", "Tailwind"],
     github: "#",
     live: "#",
@@ -21,7 +21,7 @@ const projects = [
     title: "Task Management App",
     description:
       "Collaborative task management with drag-and-drop functionality and real-time updates.",
-    image: "bg-gradient-to-br from-blue-500 to-cyan-500",
+    image: "bg-gradient-to-br from-gray-800 to-gray-600",
     technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
     github: "#",
     live: "#",
@@ -31,7 +31,7 @@ const projects = [
     title: "Portfolio Website",
     description:
       "A stunning portfolio website showcasing creative work with smooth animations.",
-    image: "bg-gradient-to-br from-orange-500 to-red-500",
+    image: "bg-gradient-to-br from-gray-700 to-black",
     technologies: ["Next.js", "Framer Motion", "Tailwind CSS"],
     github: "#",
     live: "#",
@@ -41,7 +41,7 @@ const projects = [
     title: "Weather Dashboard",
     description:
       "Beautiful weather dashboard with interactive maps and detailed forecasts.",
-    image: "bg-gradient-to-br from-green-500 to-emerald-500",
+    image: "bg-gradient-to-br from-gray-600 to-gray-800",
     technologies: ["React", "API Integration", "Chart.js"],
     github: "#",
     live: "#",
@@ -51,7 +51,7 @@ const projects = [
     title: "Social Media App",
     description:
       "Full-featured social media platform with posts, comments, and real-time messaging.",
-    image: "bg-gradient-to-br from-indigo-500 to-purple-500",
+    image: "bg-gradient-to-br from-black to-gray-700",
     technologies: ["Next.js", "Prisma", "NextAuth", "AWS"],
     github: "#",
     live: "#",
@@ -61,7 +61,7 @@ const projects = [
     title: "Analytics Dashboard",
     description:
       "Comprehensive analytics dashboard with data visualization and reporting tools.",
-    image: "bg-gradient-to-br from-pink-500 to-rose-500",
+    image: "bg-gradient-to-br from-gray-700 to-black",
     technologies: ["React", "D3.js", "Python", "PostgreSQL"],
     github: "#",
     live: "#",
@@ -225,7 +225,7 @@ export default function Projects() {
                           Live Demo
                         </motion.span>
                         <motion.div
-                          className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-emerald-500/10"
+                          className="absolute inset-0 bg-gradient-to-r from-black/10 to-gray-600/10"
                           initial={{ x: "-100%" }}
                           whileHover={{ x: 0 }}
                           transition={{ duration: 0.3 }}
@@ -250,12 +250,12 @@ export default function Projects() {
 
                 {/* Enhanced Hover Effect Overlay */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-green-600/0 to-emerald-600/0 group-hover:from-green-600/10 group-hover:to-emerald-600/10 transition-all duration-300 pointer-events-none"
+                  className="absolute inset-0 bg-gradient-to-br from-black/0 to-gray-600/0 group-hover:from-black/10 group-hover:to-gray-600/10 transition-all duration-300 pointer-events-none"
                   initial={false}
                 />
                 {/* Border glow effect */}
                 <motion.div
-                  className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-green-500/30 transition-all duration-300 pointer-events-none"
+                  className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-black/30 dark:group-hover:border-white/30 transition-all duration-300 pointer-events-none"
                   initial={false}
                 />
               </motion.div>
@@ -273,7 +273,7 @@ export default function Projects() {
             >
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white border-0 shadow-lg shadow-green-500/50 relative overflow-hidden group"
+                className="bg-gradient-to-r from-black to-gray-700 hover:from-gray-800 hover:to-black text-white dark:text-black dark:bg-gradient-to-r dark:from-white dark:to-gray-300 dark:hover:from-gray-200 dark:hover:to-white border-0 shadow-lg shadow-black/50 dark:shadow-white/20 relative overflow-hidden group"
               >
                 <motion.span
                   className="relative z-10 flex items-center"
@@ -288,7 +288,7 @@ export default function Projects() {
                   </motion.div>
                 </motion.span>
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-green-700 to-emerald-700"
+                  className="absolute inset-0 bg-gradient-to-r from-gray-800 to-black dark:from-gray-200 dark:to-white"
                   initial={{ x: "-100%" }}
                   whileHover={{ x: 0 }}
                   transition={{ duration: 0.3 }}

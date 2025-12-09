@@ -109,16 +109,16 @@ export default function About() {
               >
                 {/* Hover gradient overlay */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-green-500/0 to-emerald-500/0 group-hover:from-green-500/10 group-hover:to-emerald-500/10 transition-all duration-300"
+                  className="absolute inset-0 bg-gradient-to-br from-black/0 to-gray-600/0 group-hover:from-black/10 group-hover:to-gray-600/10 transition-all duration-300"
                   initial={false}
                 />
                 <div className="flex items-start gap-4 relative z-10">
                   <motion.div
                     whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
                     transition={{ duration: 0.5 }}
-                    className="p-3 rounded-xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 group-hover:from-green-500/30 group-hover:to-emerald-500/30 transition-all"
+                    className="p-3 rounded-xl bg-gradient-to-br from-black/20 to-gray-600/20 group-hover:from-black/30 group-hover:to-gray-600/30 transition-all"
                   >
-                    <skill.Icon className="w-6 h-6 text-green-600 dark:text-green-400" />
+                    <skill.Icon className="w-6 h-6 text-black dark:text-white" />
                   </motion.div>
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100 group-hover:gradient-text transition-all">
@@ -153,7 +153,7 @@ export default function About() {
                 className="glass dark:glass-dark rounded-xl p-6 text-center cursor-pointer group relative overflow-hidden"
               >
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-green-500/0 to-emerald-500/0 group-hover:from-green-500/10 group-hover:to-emerald-500/10 transition-all duration-300"
+                  className="absolute inset-0 bg-gradient-to-br from-black/0 to-gray-600/0 group-hover:from-black/10 group-hover:to-gray-600/10 transition-all duration-300"
                   initial={false}
                 />
                 <motion.div

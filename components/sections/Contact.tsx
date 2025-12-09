@@ -25,19 +25,19 @@ export default function Contact() {
     {
       Icon: Mail,
       label: "Email",
-      value: "your.email@example.com",
-      href: "mailto:your.email@example.com",
+      value: "nguyenminhdat03112003@gmail.com",
+      href: "mailto:nguyenminhdat03112003@gmail.com",
     },
     {
       Icon: Phone,
       label: "Phone",
-      value: "+1 (234) 567-8900",
-      href: "tel:+12345678900",
+      value: "+84 779 179 973",
+      href: "tel:+84779179973",
     },
     {
       Icon: MapPin,
       label: "Location",
-      value: "San Francisco, CA",
+      value: "Ho Chi Minh City, Vietnam",
       href: "#",
     },
   ];
@@ -96,8 +96,8 @@ export default function Contact() {
                       whileHover={{ x: 5 }}
                       className="flex items-center gap-4 p-4 rounded-lg glass dark:glass-dark hover:bg-white/10 transition-colors group"
                     >
-                      <div className="p-3 rounded-xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 group-hover:from-green-500/30 group-hover:to-emerald-500/30 transition-all">
-                        <info.Icon className="w-5 h-5 text-green-600 dark:text-green-400" />
+                      <div className="p-3 rounded-xl bg-gradient-to-br from-black/20 to-gray-600/20 group-hover:from-black/30 group-hover:to-gray-600/30 transition-all">
+                        <info.Icon className="w-5 h-5 text-black dark:text-white" />
                       </div>
                       <div>
                         <div className="text-sm text-gray-500 dark:text-gray-400">
@@ -168,7 +168,7 @@ export default function Contact() {
                       setFormData({ ...formData, name: e.target.value })
                     }
                     whileFocus={{ scale: 1.02 }}
-                    className="w-full px-4 py-3 rounded-lg glass dark:glass-dark border border-white/20 focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-800 dark:text-gray-100 transition-all"
+                    className="w-full px-4 py-3 rounded-lg glass dark:glass-dark border border-white/20 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white text-gray-800 dark:text-gray-100 transition-all"
                     placeholder="Your name"
                     required
                   />
@@ -192,7 +192,7 @@ export default function Contact() {
                       setFormData({ ...formData, email: e.target.value })
                     }
                     whileFocus={{ scale: 1.02 }}
-                    className="w-full px-4 py-3 rounded-lg glass dark:glass-dark border border-white/20 focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-800 dark:text-gray-100 transition-all"
+                    className="w-full px-4 py-3 rounded-lg glass dark:glass-dark border border-white/20 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white text-gray-800 dark:text-gray-100 transition-all"
                     placeholder="your.email@example.com"
                     required
                   />
@@ -216,7 +216,7 @@ export default function Contact() {
                     }
                     whileFocus={{ scale: 1.02 }}
                     rows={5}
-                    className="w-full px-4 py-3 rounded-lg glass dark:glass-dark border border-white/20 focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-800 dark:text-gray-100 resize-none transition-all"
+                    className="w-full px-4 py-3 rounded-lg glass dark:glass-dark border border-white/20 focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-800 dark:text-gray-100 resize-none transition-all"
                     placeholder="Your message..."
                     required
                   />
@@ -231,10 +231,10 @@ export default function Contact() {
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white border-0 shadow-lg shadow-green-500/50 relative overflow-hidden group"
+                    className="w-full bg-gradient-to-r from-black to-gray-700 hover:from-gray-800 hover:to-black text-white dark:text-black dark:bg-gradient-to-r dark:from-white dark:to-gray-300 dark:hover:from-gray-200 dark:hover:to-white border-0 shadow-lg shadow-black/50 dark:shadow-white/20 relative overflow-hidden group"
                   >
                     <motion.span
-                      className="absolute inset-0 bg-gradient-to-r from-white/0 to-white/0 group-hover:from-white/20 group-hover:to-white/20 transition-all duration-300"
+                      className="absolute inset-0 bg-gradient-to-r from-white/0 to-white/0 group-hover:from-white/20 group-hover:to-white/20 dark:group-hover:from-black/20 dark:group-hover:to-black/20 transition-all duration-300"
                       initial={false}
                     />
                     <span className="relative z-10 flex items-center justify-center">

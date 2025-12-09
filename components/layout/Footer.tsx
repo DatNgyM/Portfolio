@@ -5,19 +5,19 @@ import { socialLinks } from "@/lib/constants";
 import { motion } from "framer-motion";
 
 const socialIcons = [
-  { Icon: Github, href: socialLinks.github, label: "GitHub", color: "hover:text-gray-900 dark:hover:text-white" },
+  { Icon: Github, href: socialLinks.github, label: "GitHub", color: "hover:text-black dark:hover:text-white" },
   {
     Icon: Linkedin,
     href: socialLinks.linkedin,
     label: "LinkedIn",
-    color: "hover:text-blue-600 dark:hover:text-blue-400",
+    color: "hover:text-black dark:hover:text-white",
   },
-  { Icon: Mail, href: socialLinks.email, label: "Email", color: "hover:text-green-600 dark:hover:text-green-400" },
+  { Icon: Mail, href: socialLinks.email, label: "Email", color: "hover:text-black dark:hover:text-white" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/10 py-12 bg-gradient-to-b from-transparent to-green-50/30 dark:to-gray-900/30">
+    <footer className="relative border-t border-white/10 py-12 bg-gradient-to-b from-transparent to-gray-50/30 dark:to-gray-900/30">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           {/* Copyright */}
@@ -35,7 +35,7 @@ export default function Footer() {
                 transition={{ duration: 0.5 }}
                 className="inline-block"
               >
-                <Heart className="w-4 h-4 inline text-red-500" />
+                <Heart className="w-4 h-4 inline text-gray-700 dark:text-gray-300" />
               </motion.span>{" "}
               by{" "}
               <span className="gradient-text font-semibold">You</span>
@@ -71,7 +71,7 @@ export default function Footer() {
                 aria-label={social.label}
               >
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-green-500/0 to-emerald-500/0 group-hover:from-green-500/20 group-hover:to-emerald-500/20 transition-all duration-300"
+                  className="absolute inset-0 bg-gradient-to-br from-black/0 to-gray-600/0 group-hover:from-black/20 group-hover:to-gray-600/20 transition-all duration-300"
                   initial={false}
                 />
                 <social.Icon className={`w-5 h-5 text-gray-700 dark:text-gray-300 ${social.color} transition-colors relative z-10`} />
