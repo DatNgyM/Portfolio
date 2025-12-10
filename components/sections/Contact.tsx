@@ -63,7 +63,7 @@ export default function Contact() {
               <span className="gradient-text-2">Get In Touch</span>
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Have a project in mind? Let's work together to bring your ideas to
+              Have a project in mind? Let&apos;s work together to bring your ideas to
               life!
             </p>
           </motion.div>
@@ -78,10 +78,10 @@ export default function Contact() {
             >
               <div className="glass dark:glass-dark rounded-2xl p-8">
                 <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-100">
-                  Let's Connect
+                  Let&apos;s Connect
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-8">
-                  I'm always open to discussing new projects, creative ideas, or
+                  I&apos;m always open to discussing new projects, creative ideas, or
                   opportunities to be part of your visions.
                 </p>
 
@@ -92,7 +92,7 @@ export default function Contact() {
                       href={info.href}
                       initial={{ opacity: 0, x: -20 }}
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                      transition={{ duration: 0.3, delay: 0.1 + index * 0.05 }}
                       whileHover={{ x: 5 }}
                       className="flex items-center gap-4 p-4 rounded-lg glass dark:glass-dark hover:bg-white/10 transition-colors group"
                     >

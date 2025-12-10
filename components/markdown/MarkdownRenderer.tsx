@@ -188,9 +188,10 @@ export default function MarkdownRenderer({
             />
           ),
           // Images
-          img: ({ node, ...props }) => (
+          img: ({ node, alt, ...props }: any) => (
             <img
               className="rounded-xl shadow-2xl my-8 border border-gray-200 dark:border-gray-700"
+              alt={alt || ""}
               {...props}
             />
           ),

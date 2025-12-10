@@ -21,7 +21,7 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-32"
     >
       <motion.div
         style={{ opacity, y }}
@@ -133,7 +133,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}
-          className="absolute bottom-[-10vh] left-1/2 -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
@@ -141,6 +141,7 @@ export default function Hero() {
           >
             <ArrowDown className="w-6 h-6 text-gray-400 dark:text-gray-600" />
           </motion.div>
+          <div className="w-px h-12 bg-gradient-to-b from-gray-300 dark:from-gray-600 to-transparent" />
         </motion.div>
 
       </motion.div>
