@@ -24,101 +24,115 @@ export default function SkillsAnime() {
   useEffect(() => {
     if (!isInView || hasAnimated.current || typeof window === 'undefined') return;
     
-    // Dynamic import anime.js để tránh SSR issues
-    import("animejs").then((anime) => {
-      const { animate, stagger } = anime;
+    let timer: NodeJS.Timeout | null = null;
     
-    // Đợi một chút để đảm bảo DOM đã render
-    const timer = setTimeout(() => {
-      hasAnimated.current = true;
-
-    // Animate header
-    if (headerRef.current) {
-      animate(headerRef.current, {
-        opacity: [0, 1],
-        translateY: [30, 0],
-        duration: 600,
-        easing: 'easeOutExpo',
-      });
-    }
-
-    // Animate title
-    if (titleRef.current) {
-      animate(titleRef.current, {
-        opacity: [0, 1],
-        scale: [0.9, 1],
-        duration: 600,
-        delay: 100,
-        easing: 'easeOutExpo',
-      });
-    }
-
-    // Animate cards entrance với stagger
-    const cardElements = document.querySelectorAll('.skill-card');
-    if (cardElements.length > 0) {
-      animate(cardElements, {
-        opacity: [0, 1],
-        translateX: [-50, 0],
-        scale: [0.95, 1],
-        duration: 600,
-        delay: stagger(100, { from: 'first' }),
-        easing: 'easeOutExpo',
-      });
-    }
-
-    // Animate progress bars
-    progressBarsRef.current.forEach((bar, index) => {
-      if (!bar) return;
-      const skill = skills[index];
+    // Dynamic import anime.js để tránh SSR issues và chunk loading errors
+    import("animejs").then((anime) => {
+      // animejs v4 sử dụng named exports
+      const { animate, stagger } = anime;
       
-      animate(bar, {
-        width: [`0%`, `${skill.level}%`],
-        duration: 1500,
-        delay: index * 100 + 300,
-        easing: 'easeOutExpo',
-      });
-    });
+      if (!animate || !stagger) {
+        console.warn("animejs animate or stagger not available");
+        return;
+      }
+    
+      // Đợi một chút để đảm bảo DOM đã render
+      timer = setTimeout(() => {
+        hasAnimated.current = true;
 
-    // Animate counters với number counting
-    countersRef.current.forEach((counter, index) => {
-      if (!counter) return;
-      const skill = skills[index];
-      
-      animate(counter, {
-        innerText: [0, skill.level],
-        duration: 1500,
-        delay: index * 100 + 500,
-        easing: 'easeOutExpo',
-        round: 1,
-      });
-    });
+        // Animate header
+        if (headerRef.current) {
+          animate(headerRef.current, {
+            opacity: [0, 1],
+            translateY: [30, 0],
+            duration: 600,
+            easing: 'easeOutExpo',
+          });
+        }
 
-    // Animate counter badges
-    const counterBadges = document.querySelectorAll('.counter-badge');
-    if (counterBadges.length > 0) {
-      animate(counterBadges, {
-        opacity: [0, 1],
-        scale: [0, 1],
-        duration: 500,
-        delay: stagger(100, { start: 500 }),
-        easing: 'easeOutBack',
-      });
-    }
+        // Animate title
+        if (titleRef.current) {
+          animate(titleRef.current, {
+            opacity: [0, 1],
+            scale: [0.9, 1],
+            duration: 600,
+            delay: 100,
+            easing: 'easeOutExpo',
+          });
+        }
 
-    // Shine effect trên progress bars
-    const shineElements = document.querySelectorAll('.progress-shine');
-    if (shineElements.length > 0) {
-      animate(shineElements, {
-        translateX: ['-100%', '200%'],
-        duration: 2000,
-        delay: stagger(100, { start: 1500 }),
-        easing: 'easeInOutQuad',
-      });
-    }
-    }, 100);
+        // Animate cards entrance với stagger
+        const cardElements = document.querySelectorAll('.skill-card');
+        if (cardElements.length > 0) {
+          animate(cardElements, {
+            opacity: [0, 1],
+            translateX: [-50, 0],
+            scale: [0.95, 1],
+            duration: 600,
+            delay: stagger(100, { from: 'first' }),
+            easing: 'easeOutExpo',
+          });
+        }
+
+        // Animate progress bars
+        progressBarsRef.current.forEach((bar, index) => {
+          if (!bar) return;
+          const skill = skills[index];
+          
+          animate(bar, {
+            width: [`0%`, `${skill.level}%`],
+            duration: 1500,
+            delay: index * 100 + 300,
+            easing: 'easeOutExpo',
+          });
+        });
+
+        // Animate counters với number counting
+        countersRef.current.forEach((counter, index) => {
+          if (!counter) return;
+          const skill = skills[index];
+          
+          animate(counter, {
+            innerText: [0, skill.level],
+            duration: 1500,
+            delay: index * 100 + 500,
+            easing: 'easeOutExpo',
+            round: 1,
+          });
+        });
+
+        // Animate counter badges
+        const counterBadges = document.querySelectorAll('.counter-badge');
+        if (counterBadges.length > 0) {
+          animate(counterBadges, {
+            opacity: [0, 1],
+            scale: [0, 1],
+            duration: 500,
+            delay: stagger(100, { start: 500 }),
+            easing: 'easeOutBack',
+          });
+        }
+
+        // Shine effect trên progress bars
+        const shineElements = document.querySelectorAll('.progress-shine');
+        if (shineElements.length > 0) {
+          animate(shineElements, {
+            translateX: ['-100%', '200%'],
+            duration: 2000,
+            delay: stagger(100, { start: 1500 }),
+            easing: 'easeInOutQuad',
+          });
+        }
+      }, 100);
     }).catch((err) => {
       console.error("Failed to load anime.js:", err);
     });
+    
+    return () => {
+      if (timer) {
+        clearTimeout(timer);
+      }
+    };
   }, [isInView]);
 
   // Hover effects với anime.js
@@ -128,12 +142,17 @@ export default function SkillsAnime() {
     if (!card) return;
 
     import("animejs").then((anime) => {
-      anime.animate(card, {
-        scale: isEntering ? 1.02 : 1,
-        translateX: isEntering ? 5 : 0,
-        duration: 300,
-        easing: 'easeOutQuad',
-      });
+      const { animate } = anime;
+      if (animate) {
+        animate(card, {
+          scale: isEntering ? 1.02 : 1,
+          translateX: isEntering ? 5 : 0,
+          duration: 300,
+          easing: 'easeOutQuad',
+        });
+      }
+    }).catch((err) => {
+      console.error("Failed to load animejs for hover:", err);
     });
   };
 
@@ -143,11 +162,16 @@ export default function SkillsAnime() {
     if (!counter) return;
 
     import("animejs").then((anime) => {
-      anime.animate(counter, {
-        scale: isEntering ? 1.2 : 1,
-        duration: 200,
-        easing: 'easeOutQuad',
-      });
+      const { animate } = anime;
+      if (animate) {
+        animate(counter, {
+          scale: isEntering ? 1.2 : 1,
+          duration: 200,
+          easing: 'easeOutQuad',
+        });
+      }
+    }).catch((err) => {
+      console.error("Failed to load animejs for hover:", err);
     });
   };
 

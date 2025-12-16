@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { BlogPost } from "@/types/blog";
 import Link from "next/link";
 
@@ -78,21 +77,18 @@ export default function BlogCard({ post, index }: BlogCardProps) {
           {/* Meta Info */}
           <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
             <div className="flex items-center gap-4">
-              <div className="flex items-center gap-1">
-                <Calendar className="w-4 h-4" />
+              <div>
                 <span>{formatDate(post.date)}</span>
               </div>
-              <div className="flex items-center gap-1">
-                <Clock className="w-4 h-4" />
+              <div>
                 <span>{post.readTime} phút đọc</span>
               </div>
             </div>
             <motion.div
               whileHover={{ x: 5 }}
-              className="flex items-center gap-1 text-green-600 dark:text-green-400 font-semibold"
+              className="text-green-600 dark:text-green-400 font-semibold"
             >
               Đọc thêm
-              <ArrowRight className="w-4 h-4" />
             </motion.div>
           </div>
         </div>

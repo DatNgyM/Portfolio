@@ -34,3 +34,25 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Cursor workspace files
+/assets/c__Users_*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# Cache
+.cache/
+.turbo/

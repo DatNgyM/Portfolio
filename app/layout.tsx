@@ -5,8 +5,31 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "My Portfolio Website",
+  title: {
+    default: "Portfolio | Developer Blog",
+    template: "%s | Portfolio",
+  },
+  description: "Portfolio website và blog chia sẻ kiến thức về Java, JavaScript và Network Programming",
+  keywords: ["portfolio", "developer", "blog", "Java", "JavaScript", "programming"],
+  authors: [{ name: "Your Name" }],
+  creator: "Your Name",
+  openGraph: {
+    type: "website",
+    locale: "vi_VN",
+    url: "https://your-portfolio.vercel.app",
+    siteName: "Portfolio",
+    title: "Portfolio | Developer Blog",
+    description: "Portfolio website và blog chia sẻ kiến thức về Java, JavaScript và Network Programming",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Portfolio | Developer Blog",
+    description: "Portfolio website và blog chia sẻ kiến thức về Java, JavaScript và Network Programming",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

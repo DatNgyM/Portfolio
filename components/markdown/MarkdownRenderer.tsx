@@ -196,7 +196,7 @@ export default function MarkdownRenderer({
             if (isExternal) {
               // For external images, use regular img tag
               return (
-                // eslint-disable-next-line @next/next/no-img-element
+                // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
                 <img
                   src={imageSrc}
                   alt={alt || ""}

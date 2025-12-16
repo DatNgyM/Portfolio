@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, Clock, ArrowLeft, Tag, User } from "lucide-react";
 import { BlogPost } from "@/types/blog";
 import MarkdownRenderer from "@/components/markdown/MarkdownRenderer";
 import Link from "next/link";
@@ -74,7 +73,6 @@ export default function BlogPostContent({ post }: BlogPostContentProps) {
               variant="ghost"
               className="glass dark:glass-dark hover:bg-white/10 transition-all duration-300 hover:scale-105"
             >
-              <ArrowLeft className="w-4 h-4 mr-2" />
               Quay lại Blog
             </Button>
           </Link>
@@ -123,23 +121,19 @@ export default function BlogPostContent({ post }: BlogPostContentProps) {
             className="glass dark:glass-dark rounded-2xl p-6 md:p-8 mb-8 shadow-xl border border-white/20 dark:border-white/10"
           >
             <div className="flex flex-wrap items-center gap-6 text-sm mb-4">
-              <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300 font-medium">
-                <Calendar className="w-5 h-5 text-green-600 dark:text-green-400" />
+              <div className="text-gray-700 dark:text-gray-300 font-medium">
                 <span>{formatDate(post.date)}</span>
               </div>
-              <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300 font-medium">
-                <Clock className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+              <div className="text-gray-700 dark:text-gray-300 font-medium">
                 <span>{post.readTime} phút đọc</span>
               </div>
-              <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300 font-medium">
-                <User className="w-5 h-5 text-teal-600 dark:text-teal-400" />
+              <div className="text-gray-700 dark:text-gray-300 font-medium">
                 <span>{post.author}</span>
               </div>
             </div>
 
             {/* Tags - Enhanced */}
             <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-white/20 dark:border-white/10">
-              <Tag className="w-4 h-4 text-gray-500 dark:text-gray-400" />
               {post.tags.map((tag, index) => (
                 <motion.span
                   key={tag}
@@ -177,7 +171,6 @@ export default function BlogPostContent({ post }: BlogPostContentProps) {
               size="lg"
               className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 hover:from-green-700 hover:via-emerald-700 hover:to-teal-700 text-white border-0 shadow-xl shadow-green-500/30 hover:shadow-2xl hover:shadow-green-500/40 transition-all duration-300 hover:scale-105 px-8 py-6 text-lg font-semibold"
             >
-              <ArrowLeft className="w-5 h-5 mr-2" />
               Xem tất cả bài viết
             </Button>
           </Link>

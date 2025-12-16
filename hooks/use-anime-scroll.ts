@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { onScroll, ScrollObserver } from "animejs";
 
 interface UseAnimeScrollOptions {
   threshold?: number;
@@ -19,30 +18,42 @@ export function useAnimeScroll(
   options?: UseAnimeScrollOptions
 ) {
   const ref = useRef<HTMLElement>(null);
-  const observerRef = useRef<ScrollObserver | null>(null);
+  const observerRef = useRef<any>(null);
   const hasAnimated = useRef(false);
 
   useEffect(() => {
-    if (!ref.current) return;
+    if (!ref.current || typeof window === 'undefined') return;
     if (options?.once && hasAnimated.current) return;
 
-    const observer = onScroll({
-      targets: selector,
-      ...animationConfig,
-      ...(options?.offset && {
-        offset: options.offset,
-      }),
+    // Dynamic import để tránh SSR issues và chunk loading errors
+    import("animejs").then((anime) => {
+      const { onScroll } = anime;
+      
+      if (!onScroll) {
+        console.warn("animejs onScroll is not available");
+        return;
+      }
+
+      const observer = onScroll({
+        targets: selector,
+        ...animationConfig,
+        ...(options?.offset && {
+          offset: options.offset,
+        }),
+      });
+
+      observerRef.current = observer;
+      hasAnimated.current = true;
+    }).catch((err) => {
+      console.error("Failed to load animejs:", err);
     });
 
-    observerRef.current = observer;
-    hasAnimated.current = true;
-
     return () => {
-      if (observerRef.current) {
+      if (observerRef.current && typeof observerRef.current.revert === 'function') {
         observerRef.current.revert();
       }
     };
-  }, [selector, options]);
+  }, [selector, options, animationConfig]);
 
   return { ref };
 }

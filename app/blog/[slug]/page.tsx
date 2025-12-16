@@ -33,6 +33,19 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.excerpt,
+    keywords: post.tags.join(", "),
+    authors: [{ name: post.author }],
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      tags: post.tags,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+    },
   };
 }
 
