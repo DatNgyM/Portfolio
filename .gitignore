@@ -60,5 +60,3 @@ logs/
 # Markdown files
 *.md
 
-# Public folder
-/public
