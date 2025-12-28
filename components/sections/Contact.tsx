@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Mail, Github, Linkedin, Send, MapPin, Phone } from "lucide-react";
+import { Mail, Github, Linkedin, Send, MapPin, Phone, CheckCircle, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { socialLinks } from "@/lib/constants";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
@@ -14,11 +14,50 @@ export default function Contact() {
     email: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
+    } catch (error: any) {
+      setSubmitStatus('error');
+      setErrorMessage(error.message || 'Something went wrong. Please try again.');
+      
+      // Reset error message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+        setErrorMessage('');
+      }, 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -221,30 +260,67 @@ export default function Contact() {
                     required
                   />
                 </motion.div>
+                {/* Status Messages */}
+                {submitStatus === 'success' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="flex items-center gap-2 p-4 rounded-lg bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 border border-green-300 dark:border-green-700"
+                  >
+                    <CheckCircle className="w-5 h-5 flex-shrink-0" />
+                    <p className="text-sm font-medium">Message sent successfully! I'll get back to you soon.</p>
+                  </motion.div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="flex items-center gap-2 p-4 rounded-lg bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 border border-red-300 dark:border-red-700"
+                  >
+                    <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                    <p className="text-sm font-medium">{errorMessage || 'Failed to send message. Please try again.'}</p>
+                  </motion.div>
+                )}
+
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.7 }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={!isSubmitting ? { scale: 1.02 } : {}}
+                  whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                 >
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full bg-gradient-to-r from-black to-gray-700 hover:from-gray-800 hover:to-black text-white dark:text-black dark:bg-gradient-to-r dark:from-white dark:to-gray-300 dark:hover:from-gray-200 dark:hover:to-white border-0 shadow-lg shadow-black/50 dark:shadow-white/20 relative overflow-hidden group"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-black to-gray-700 hover:from-gray-800 hover:to-black text-white dark:text-black dark:bg-gradient-to-r dark:from-white dark:to-gray-300 dark:hover:from-gray-200 dark:hover:to-white border-0 shadow-lg shadow-black/50 dark:shadow-white/20 relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <motion.span
                       className="absolute inset-0 bg-gradient-to-r from-white/0 to-white/0 group-hover:from-white/20 group-hover:to-white/20 dark:group-hover:from-black/20 dark:group-hover:to-black/20 transition-all duration-300"
                       initial={false}
                     />
                     <span className="relative z-10 flex items-center justify-center">
-                      Send Message
-                      <motion.span
-                        whileHover={{ x: 5 }}
-                        transition={{ type: "spring", stiffness: 400 }}
-                      >
-                        <Send className="w-5 h-5 ml-2" />
-                      </motion.span>
+                      {isSubmitting ? (
+                        <>
+                          <motion.div
+                            className="w-5 h-5 border-2 border-white dark:border-gray-900 border-t-transparent rounded-full mr-2"
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          Send Message
+                          <motion.span
+                            whileHover={{ x: 5 }}
+                            transition={{ type: "spring", stiffness: 400 }}
+                          >
+                            <Send className="w-5 h-5 ml-2" />
+                          </motion.span>
+                        </>
+                      )}
                     </span>
                   </Button>
                 </motion.div>

@@ -10,10 +10,14 @@ const skills = [
   { name: "Tailwind CSS", level: 95, color: "from-gray-600 to-black" },
   { name: "Framer Motion", level: 88, color: "from-black to-gray-700" },
   { name: "Node.js", level: 80, color: "from-gray-800 to-black" },
+  { name: "SQL/Database", level: 75, color: "from-gray-700 to-gray-500" },
+  { name: "PostgreSQL", level: 70, color: "from-gray-600 to-gray-800" },
+  { name: "Flutter", level: 70, color: "from-gray-600 to-black" },
+  { name: "CI/CD (Vercel)", level: 85, color: "from-black to-gray-700" },
 ];
 
 export default function SkillsAnime() {
-  const { ref, isInView } = useScrollAnimation({ amount: 0.3 });
+  const { ref, isInView } = useScrollAnimation({ amount: 0.1 });
   const progressBarsRef = useRef<(HTMLDivElement | null)[]>([]);
   const countersRef = useRef<(HTMLSpanElement | null)[]>([]);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -45,7 +49,7 @@ export default function SkillsAnime() {
           animate(headerRef.current, {
             opacity: [0, 1],
             translateY: [30, 0],
-            duration: 600,
+            duration: 500,
             easing: 'easeOutExpo',
           });
         }
@@ -55,8 +59,8 @@ export default function SkillsAnime() {
           animate(titleRef.current, {
             opacity: [0, 1],
             scale: [0.9, 1],
-            duration: 600,
-            delay: 100,
+            duration: 500,
+            delay: 50,
             easing: 'easeOutExpo',
           });
         }
@@ -68,62 +72,62 @@ export default function SkillsAnime() {
             opacity: [0, 1],
             translateX: [-50, 0],
             scale: [0.95, 1],
-            duration: 600,
-            delay: stagger(100, { from: 'first' }),
+            duration: 500,
+            delay: stagger(50, { from: 'first' }),
             easing: 'easeOutExpo',
           });
         }
 
-        // Animate progress bars
-        progressBarsRef.current.forEach((bar, index) => {
-          if (!bar) return;
-          const skill = skills[index];
-          
-          animate(bar, {
-            width: [`0%`, `${skill.level}%`],
-            duration: 1500,
-            delay: index * 100 + 300,
-            easing: 'easeOutExpo',
-          });
-        });
-
-        // Animate counters với number counting
-        countersRef.current.forEach((counter, index) => {
-          if (!counter) return;
-          const skill = skills[index];
-          
-          animate(counter, {
-            innerText: [0, skill.level],
-            duration: 1500,
-            delay: index * 100 + 500,
-            easing: 'easeOutExpo',
-            round: 1,
-          });
-        });
-
-        // Animate counter badges
+        // Animate counter badges trước để hiển thị ngay
         const counterBadges = document.querySelectorAll('.counter-badge');
         if (counterBadges.length > 0) {
           animate(counterBadges, {
             opacity: [0, 1],
             scale: [0, 1],
-            duration: 500,
-            delay: stagger(100, { start: 500 }),
+            duration: 300,
+            delay: stagger(30, { start: 100 }),
             easing: 'easeOutBack',
           });
         }
+
+        // Animate progress bars và counters đồng thời
+        progressBarsRef.current.forEach((bar, index) => {
+          if (!bar) return;
+          const skill = skills[index];
+          const startDelay = index * 50 + 150; // Giảm delay giữa các skill
+          
+          // Animate progress bar
+          animate(bar, {
+            width: [`0%`, `${skill.level}%`],
+            duration: 1200, // Giảm duration
+            delay: startDelay,
+            easing: 'easeOutExpo',
+          });
+
+          // Animate counter cùng lúc với progress bar
+          const counter = countersRef.current[index];
+          if (counter) {
+            animate(counter, {
+              innerText: [0, skill.level],
+              duration: 1200, // Cùng duration với progress bar
+              delay: startDelay, // Cùng delay với progress bar
+              easing: 'easeOutExpo',
+              round: 1,
+            });
+          }
+        });
 
         // Shine effect trên progress bars
         const shineElements = document.querySelectorAll('.progress-shine');
         if (shineElements.length > 0) {
           animate(shineElements, {
             translateX: ['-100%', '200%'],
-            duration: 2000,
-            delay: stagger(100, { start: 1500 }),
+            duration: 1500,
+            delay: stagger(50, { start: 1200 }),
             easing: 'easeInOutQuad',
           });
         }
-      }, 100);
+      }, 50); // Giảm timeout từ 100ms xuống 50ms
     }).catch((err) => {
       console.error("Failed to load anime.js:", err);
     });

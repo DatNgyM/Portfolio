@@ -3,9 +3,10 @@
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { navLinks } from "@/lib/constants";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -13,6 +14,7 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const { scrollY } = useScroll();
   const pathname = usePathname();
+  const { language, setLanguage, t } = useLanguage();
 
   // Throttle scroll updates để tối ưu performance
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -156,6 +158,14 @@ export default function Navbar() {
             {navLinks.map((link, index) => {
               const isActive = activeSection === link.href;
               const isHashLink = link.href.startsWith("#");
+              // Get translated label
+              const translatedLabel = link.href === "#home" 
+                ? t.nav.home 
+                : link.href === "/about" 
+                ? t.nav.about 
+                : link.href === "/blog" 
+                ? t.nav.blog 
+                : link.label;
               
               return (
                 <motion.a
@@ -172,7 +182,7 @@ export default function Navbar() {
                   transition={{ delay: index * 0.1, duration: 0.5 }}
                   whileHover={{ y: -2 }}
                 >
-                  {link.label}
+                  {translatedLabel}
                   <motion.span
                     className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-black to-gray-700 dark:from-white dark:to-gray-300 rounded-full"
                     initial={{ width: 0 }}
@@ -192,19 +202,44 @@ export default function Navbar() {
                 </motion.a>
               );
             })}
+            
+            {/* Language Switcher */}
+            <motion.button
+              onClick={() => setLanguage(language === 'en' ? 'vi' : 'en')}
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg glass dark:glass-dark hover:bg-white/20 dark:hover:bg-white/10 transition-all"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: navLinks.length * 0.1, duration: 0.5 }}
+            >
+              <Globe className="w-4 h-4 text-gray-700 dark:text-gray-300" />
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                {language.toUpperCase()}
+              </span>
+            </motion.button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 glass dark:glass-dark rounded-lg"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
+          {/* Mobile Menu Button & Language Switcher */}
+          <div className="md:hidden flex items-center gap-2">
+            <motion.button
+              onClick={() => setLanguage(language === 'en' ? 'vi' : 'en')}
+              className="p-2 glass dark:glass-dark rounded-lg"
+              whileTap={{ scale: 0.95 }}
+            >
+              <Globe className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+            </motion.button>
+            <button
+              className="p-2 glass dark:glass-dark rounded-lg"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -217,6 +252,13 @@ export default function Navbar() {
           >
             {navLinks.map((link) => {
               const isActive = activeSection === link.href;
+              const translatedLabel = link.href === "#home" 
+                ? t.nav.home 
+                : link.href === "/about" 
+                ? t.nav.about 
+                : link.href === "/blog" 
+                ? t.nav.blog 
+                : link.label;
               
               return (
                 <a
@@ -229,7 +271,7 @@ export default function Navbar() {
                       : "hover:bg-white/10"
                   }`}
                 >
-                  {link.label}
+                  {translatedLabel}
                 </a>
               );
             })}

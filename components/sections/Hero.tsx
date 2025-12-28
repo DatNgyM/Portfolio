@@ -4,10 +4,12 @@ import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Sparkles, Code, Palette, Zap } from "lucide-react";
 import { useRef } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Hero() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
+  const { t } = useLanguage();
   
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -50,10 +52,10 @@ export default function Hero() {
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             >
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 dark:from-white dark:via-gray-200 dark:to-gray-400 pb-2">
-                CREATIVE
+                {t.hero.titleLine1}
               </span>
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-black via-gray-600 to-black dark:from-white dark:via-gray-300 dark:to-white">
-                DEVELOPER
+                {t.hero.titleLine2}
               </span>
             </motion.h1>
           </div>
@@ -71,7 +73,17 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-in-out" />
               
               <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-200 font-light max-w-2xl mx-auto leading-relaxed">
-                Building digital experiences at the intersection of <span className="font-semibold text-black dark:text-white">Design</span> and <span className="font-semibold text-gray-600 dark:text-gray-300">Technology</span>.
+                {t.hero.subtitle.includes(t.hero.cleanCode) ? (
+                  <>
+                    {t.hero.subtitle.split(t.hero.cleanCode)[0]}
+                    <span className="font-semibold text-black dark:text-white">{t.hero.cleanCode}</span>
+                    {t.hero.subtitle.split(t.hero.cleanCode)[1]?.split(t.hero.beautifulDesign)[0]}
+                    <span className="font-semibold text-gray-600 dark:text-gray-300">{t.hero.beautifulDesign}</span>
+                    {t.hero.subtitle.split(t.hero.beautifulDesign)[1]}
+                  </>
+                ) : (
+                  t.hero.subtitle
+                )}
               </p>
             </div>
           </motion.div>
@@ -84,9 +96,9 @@ export default function Hero() {
             className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 w-full max-w-4xl"
           >
             {[
-              { icon: Code, title: "Clean Code", desc: "Optimized & Scalable", color: "from-gray-600/20 to-gray-400/20", iconColor: "text-gray-700 dark:text-gray-300" },
-              { icon: Palette, title: "Modern UI", desc: "Pixel Perfect Design", color: "from-black/20 to-gray-600/20", iconColor: "text-black dark:text-white" },
-              { icon: Zap, title: "Fast Performance", desc: "Lightning Speed", color: "from-gray-800/20 to-gray-500/20", iconColor: "text-gray-800 dark:text-gray-200" },
+              { icon: Code, title: t.hero.features.cleanCode.title, desc: t.hero.features.cleanCode.desc, color: "from-gray-600/20 to-gray-400/20", iconColor: "text-gray-700 dark:text-gray-300" },
+              { icon: Palette, title: t.hero.features.modernUI.title, desc: t.hero.features.modernUI.desc, color: "from-black/20 to-gray-600/20", iconColor: "text-black dark:text-white" },
+              { icon: Zap, title: t.hero.features.fastPerformance.title, desc: t.hero.features.fastPerformance.desc, color: "from-gray-800/20 to-gray-500/20", iconColor: "text-gray-800 dark:text-gray-200" },
             ].map((item, i) => (
               <motion.div
                 key={item.title}
@@ -115,14 +127,14 @@ export default function Hero() {
               size="lg"
               className="bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 rounded-full px-8 h-12 text-lg font-medium shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
             >
-              View Projects
+              {t.hero.viewProjects}
             </Button>
             <Button
               size="lg"
               variant="outline"
               className="glass border-gray-300 dark:border-gray-700 rounded-full px-8 h-12 text-lg font-medium hover:bg-white/20 transition-all hover:-translate-y-1"
             >
-              Contact Me
+              {t.hero.contactMe}
             </Button>
           </motion.div>
 

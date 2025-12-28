@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github, ArrowRight, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import Image from "next/image";
 
 const projects = [
   {
@@ -12,9 +13,10 @@ const projects = [
     description:
       "A comprehensive JavaScript documentation website with interactive examples and detailed explanations.",
     image: "bg-gradient-to-br from-black to-gray-700",
+    imageUrl: "/img/project/js-documentation.png",
     technologies: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/DatNgyM/JS-Document-Website",
-    live: "#",
+    live: "https://datngym.github.io/JS-Document-Website/",
   },
   {
     id: 2,
@@ -22,9 +24,10 @@ const projects = [
     description:
       "A modern and responsive landing page with beautiful design and smooth animations.",
     image: "bg-gradient-to-br from-gray-800 to-gray-600",
+    imageUrl: "/img/project/lading-page.png",
     technologies: ["HTML", "CSS"],
     github: "https://github.com/DatNgyM/Ladding_Page",
-    live: "#",
+    live: "https://datngym.github.io/Ladding_Page/",
   },
   {
     id: 3,
@@ -32,9 +35,10 @@ const projects = [
     description:
       "A stunning portfolio website showcasing creative work with smooth animations and modern design.",
     image: "bg-gradient-to-br from-gray-700 to-black",
+    imageUrl: "/img/project/portfolio.png",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     github: "https://github.com/DatNgyM/Porfolio",
-    live: "#",
+    live: "https://nguyenminhdat.vercel.app/",
   },
   {
     id: 4,
@@ -42,9 +46,10 @@ const projects = [
     description:
       "A modern NFT marketplace website featuring digital art collections and trading functionality.",
     image: "bg-gradient-to-br from-gray-600 to-gray-800",
+    imageUrl: "/img/project/nft.png",
     technologies: ["HTML", "CSS"],
     github: "https://github.com/DatNgyM/NFT_Web",
-    live: "#",
+    live: "https://datngym.github.io/NFT_Web/",
   },
   {
     id: 5,
@@ -52,6 +57,7 @@ const projects = [
     description:
       "An interactive reading application with book management, reading progress tracking, and user-friendly interface.",
     image: "bg-gradient-to-br from-black to-gray-700",
+    imageUrl: "/img/project/reading-app.jpg",
     technologies: ["Flutter", "Dart"],
     github: "https://github.com/DatNgyM/Reading_app",
     live: "#",
@@ -62,9 +68,10 @@ const projects = [
     description:
       "A full-featured blog website with content management, categories, and modern UI design.",
     image: "bg-gradient-to-br from-gray-700 to-black",
+    imageUrl: "/img/project/blog.png",
     technologies: ["HTML", "CSS"],
     github: "https://github.com/DatNgyM/Blog_Web",
-    live: "#",
+    live: "https://datngym.github.io/Blog_Web/",
   },
 ];
 
@@ -135,12 +142,23 @@ export default function Projects() {
                 key={project.id}
                 variants={itemVariants}
                 whileHover={{ y: -12, scale: 1.02 }}
-                className="group relative overflow-hidden rounded-2xl glass dark:glass-dark cursor-pointer"
+                className="group relative overflow-hidden rounded-2xl glass dark:glass-dark cursor-pointer flex flex-col h-full"
               >
                 {/* Project Image/Color */}
                 <div
-                  className={`${project.image} h-48 relative overflow-hidden`}
+                  className={`${project.imageUrl ? '' : project.image} h-48 relative overflow-hidden flex-shrink-0`}
                 >
+                  {/* Project Image */}
+                  {project.imageUrl && (
+                    <Image
+                      src={project.imageUrl}
+                      alt={project.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  )}
+                  
                   <motion.div
                     className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300"
                     whileHover={{ scale: 1.1 }}
@@ -169,20 +187,20 @@ export default function Projects() {
                 </div>
 
                 {/* Project Info */}
-                <div className="p-6 relative z-10">
+                <div className="p-6 relative z-10 flex flex-col flex-grow">
                   <motion.h3
                     className="text-2xl font-bold mb-2 text-gray-800 dark:text-gray-100 group-hover:gradient-text transition-all"
                     whileHover={{ x: 5 }}
                   >
                     {project.title}
                   </motion.h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">
+                  <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-2 flex-grow">
                     {project.description}
                   </p>
 
                   {/* Technologies */}
                   <motion.div
-                    className="flex flex-wrap gap-2 mb-4"
+                    className="flex flex-wrap gap-2 mb-4 min-h-[32px]"
                     initial="hidden"
                     whileHover="visible"
                   >
@@ -205,9 +223,11 @@ export default function Projects() {
                   </motion.div>
 
                   {/* Links */}
-                  <div className="flex gap-3">
+                  <div className="flex gap-3 mt-auto">
                     <motion.a
                       href={project.live}
+                      target={project.live !== "#" ? "_blank" : undefined}
+                      rel={project.live !== "#" ? "noopener noreferrer" : undefined}
                       whileHover={{ scale: 1.05, x: 2 }}
                       whileTap={{ scale: 0.95 }}
                       className="flex-1"
@@ -234,6 +254,8 @@ export default function Projects() {
                     </motion.a>
                     <motion.a
                       href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
                       whileTap={{ scale: 0.95 }}
                     >
