@@ -268,7 +268,7 @@ export default function Contact() {
                     className="flex items-center gap-2 p-4 rounded-lg bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 border border-green-300 dark:border-green-700"
                   >
                     <CheckCircle className="w-5 h-5 flex-shrink-0" />
-                    <p className="text-sm font-medium">Message sent successfully! I'll get back to you soon.</p>
+                    <p className="text-sm font-medium">Message sent successfully! I&apos;ll get back to you soon.</p>
                   </motion.div>
                 )}
 
