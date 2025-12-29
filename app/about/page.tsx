@@ -341,7 +341,7 @@ export default function AboutPage() {
                           JavaScript Essentials 1
                         </h3>
                         <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">
-                          [Tổ Chức Cấp]
+                          Cisco Networking Academy
                         </p>
                         <p className="text-gray-500 dark:text-gray-500 text-xs mb-2">
                           {t.about.issuedDate}: 23/12/2024
@@ -374,7 +374,7 @@ export default function AboutPage() {
                           Networking Basics
                         </h3>
                         <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">
-                          [Tổ Chức Cấp]
+                          Cisco Networking Academy
                         </p>
                         <p className="text-gray-500 dark:text-gray-500 text-xs mb-2">
                           {t.about.issuedDate}: 23/12/2024
@@ -407,7 +407,7 @@ export default function AboutPage() {
                           JavaScript Essentials 2
                         </h3>
                         <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">
-                          [Tổ Chức Cấp]
+                          Cisco Networking Academy
                         </p>
                         <p className="text-gray-500 dark:text-gray-500 text-xs mb-2">
                           {t.about.issuedDate}: 26/12/2024
