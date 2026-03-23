@@ -4,9 +4,10 @@ import { useEffect, useRef } from "react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const skills = [
+  { name: "UI/UX Design (Figma)", level: 85, color: "from-gray-700 to-gray-500" },
+  { name: "HTML5/CSS3", level: 90, color: "from-gray-800 to-gray-600" },
   { name: "React/Next.js", level: 95, color: "from-black to-gray-700" },
   { name: "TypeScript", level: 90, color: "from-gray-800 to-gray-600" },
-  { name: "UI/UX Design", level: 85, color: "from-gray-700 to-gray-500" },
   { name: "Tailwind CSS", level: 95, color: "from-gray-600 to-black" },
   { name: "Framer Motion", level: 88, color: "from-black to-gray-700" },
   { name: "Node.js", level: 80, color: "from-gray-800 to-black" },
