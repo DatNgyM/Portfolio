@@ -2,21 +2,21 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Code2, Palette, Zap, Users, Award, Target, Database, Smartphone, GitBranch, Mail, MapPin, Calendar, Briefcase, ExternalLink, Github } from "lucide-react";
+import { Code2, Palette, Search, Users, Award, Target, LineChart, MonitorSmartphone, GitBranch, Mail, MapPin, Calendar, Briefcase, ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const skills = [
-  { Icon: Code2, title: "Frontend Development", description: "React, Next.js, TypeScript" },
-  { Icon: Palette, title: "UI/UX Design", description: "Figma, Design Systems" },
-  { Icon: Zap, title: "Performance", description: "Optimization & Best Practices" },
+  { Icon: Code2, title: "Frontend Development", description: "React, Next.js, HTML5, CSS3, Tailwind" },
+  { Icon: Palette, title: "UI/UX Design", description: "Figma, Wireframing, Prototyping, Visual Design" },
+  { Icon: Search, title: "User Research", description: "Information Architecture (IA), User Flows, Usability Testing" },
   { Icon: Users, title: "Collaboration", description: "Team Work & Communication" },
   { Icon: Award, title: "Quality", description: "Clean Code & Testing" },
   { Icon: Target, title: "Problem Solving", description: "Creative Solutions" },
-  { Icon: Database, title: "Database & SQL", description: "SQL, PostgreSQL, Database Management" },
-  { Icon: Smartphone, title: "Mobile Development", description: "Flutter, Dart, Cross-platform" },
-  { Icon: GitBranch, title: "CI/CD & DevOps", description: "Vercel, Automated Deployment" },
+  { Icon: LineChart, title: "Business Analysis", description: "Agile/Scrum, Requirement Analysis, Process Management" },
+  { Icon: MonitorSmartphone, title: "Responsive Design", description: "Mobile-First Approach, Grid Systems, Cross-platform" },
+  { Icon: GitBranch, title: "Version Control", description: "Git, GitHub, Vercel Deployment" },
 ];
 
 const containerVariants = {
@@ -46,14 +46,14 @@ const itemVariants = {
 const projects = [
   {
     id: 1,
-    title: "JavaScript Documentation Website",
+    title: "Inventory Management Mobile App",
     description:
-      "A comprehensive JavaScript documentation website with interactive examples and detailed explanations.",
-    image: "bg-gradient-to-br from-black to-gray-700",
-    imageUrl: "/img/project/js-documentation.png",
-    technologies: ["HTML", "CSS", "JavaScript"],
-    github: "https://github.com/DatNgyM/JS-Document-Website",
-    live: "https://datngym.github.io/JS-Document-Website/",
+      "A mobile inventory dashboard with metrics, product highlights, and intuitive navigation—designed in Figma for a clear, modern UX.",
+    image: "bg-gradient-to-br from-gray-700 to-black",
+    imageUrl: "/img/project/Inventory%20Management%20Mobile.png",
+    technologies: ["Figma", "UI/UX", "Mobile App"],
+    github: "#",
+    live: "https://www.figma.com/proto/PKOKcbFaQKtCcotxu0uI9S/Qu%E1%BA%A3n-l%C3%BD-kho?node-id=189-392&viewport=532%2C189%2C0.3&t=xM7xtC8FQQ6o1qiH-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=189%3A392&page-id=189%3A391",
   },
   {
     id: 2,
@@ -68,14 +68,14 @@ const projects = [
   },
   {
     id: 3,
-    title: "Portfolio Website",
+    title: "JavaScript Documentation Website",
     description:
-      "A stunning portfolio website showcasing creative work with smooth animations and modern design.",
-    image: "bg-gradient-to-br from-gray-700 to-black",
-    imageUrl: "/img/project/portfolio.png",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    github: "https://github.com/DatNgyM/Porfolio",
-    live: "https://nguyenminhdat.vercel.app/",
+      "A comprehensive JavaScript documentation website with interactive examples and detailed explanations.",
+    image: "bg-gradient-to-br from-black to-gray-700",
+    imageUrl: "/img/project/js-documentation.png",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/DatNgyM/JS-Document-Website",
+    live: "https://datngym.github.io/JS-Document-Website/",
   },
   {
     id: 4,
@@ -144,10 +144,10 @@ export default function About() {
                 className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white/20 dark:border-gray-700/20 shadow-lg"
               >
                 <Image
-                  src="/img/p_v2.jpg"
+                  src="/img/portrait.jpg"
                   alt="Profile"
                   fill
-                  className="object-cover"
+                  className="object-cover object-[center_28%]"
                   priority
                 />
               </motion.div>
@@ -378,21 +378,23 @@ export default function About() {
                           />
                         </Button>
                       </motion.a>
-                      <motion.a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="glass dark:glass-dark"
+                      {project.github !== "#" && (
+                        <motion.a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
+                          whileTap={{ scale: 0.95 }}
                         >
-                          <Github className="w-4 h-4" />
-                        </Button>
-                      </motion.a>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="glass dark:glass-dark"
+                          >
+                            <Github className="w-4 h-4" />
+                          </Button>
+                        </motion.a>
+                      )}
                     </div>
                   </div>
 

@@ -163,8 +163,6 @@ export default function Navbar() {
                 ? t.nav.home 
                 : link.href === "/about" 
                 ? t.nav.about 
-                : link.href === "/blog" 
-                ? t.nav.blog 
                 : link.label;
               
               return (
@@ -256,8 +254,6 @@ export default function Navbar() {
                 ? t.nav.home 
                 : link.href === "/about" 
                 ? t.nav.about 
-                : link.href === "/blog" 
-                ? t.nav.blog 
                 : link.label;
               
               return (

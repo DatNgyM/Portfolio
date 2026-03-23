@@ -9,8 +9,8 @@ export const translations = {
       contact: "Contact"
     },
     hero: {
-      titleLine1: "CREATIVE",
-      titleLine2: "DEVELOPER",
+      titleLine1: "UI/UX DESIGNER &",
+      titleLine2: "FRONTEND DEVELOPER",
       subtitle: "I'm a creative Frontend Developer who transforms ideas into digital reality. With a passion for clean code and beautiful design, I craft beautiful, functional, and user-centered web experiences using modern web technologies.",
       cleanCode: "clean code",
       beautifulDesign: "beautiful design",
@@ -41,8 +41,8 @@ export const translations = {
       position: "Position",
       skills: "Skills",
       education: "Education",
-      certificationLearning: "Certification Learning",
-      certifications: "Certifications",
+      certificationLearning: "Project-based Learning",
+      certifications: "Professional Certifications",
       featuredProjects: "Featured Projects",
       viewCertificate: "View Certificate",
       issuedDate: "Issued Date"
@@ -89,8 +89,8 @@ export const translations = {
       contact: "Liên Hệ"
     },
     hero: {
-      titleLine1: "NHÀ PHÁT TRIỂN",
-      titleLine2: "SÁNG TẠO",
+      titleLine1: "THIẾT KẾ UI/UX &",
+      titleLine2: "LẬP TRÌNH FRONTEND",
       subtitle: "Tôi là một Frontend Developer sáng tạo, biến ý tưởng thành hiện thực số. Với niềm đam mê về code sạch và thiết kế đẹp, tôi tạo ra những trải nghiệm web đẹp, chức năng và tập trung vào người dùng bằng các công nghệ web hiện đại.",
       cleanCode: "code sạch",
       beautifulDesign: "thiết kế đẹp",
@@ -121,8 +121,8 @@ export const translations = {
       position: "Vị Trí",
       skills: "Kỹ Năng",
       education: "Học Vấn",
-      certificationLearning: "Quá Trình Học Chứng Chỉ",
-      certifications: "Chứng Chỉ",
+      certificationLearning: "Học Dự Án",
+      certifications: "Chứng Chỉ Chuyên Nghiệp",
       featuredProjects: "Dự Án Nổi Bật",
       viewCertificate: "Xem chứng chỉ",
       issuedDate: "Ngày Cấp"

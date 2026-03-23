@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Palette, Zap, Users, Award, Target, Mail, MapPin, Calendar, GraduationCap, Briefcase, ExternalLink, Database, Smartphone, GitBranch, Github } from "lucide-react";
+import { Code2, Palette, Search, Users, Award, Target, Mail, MapPin, Calendar, GraduationCap, Briefcase, ExternalLink, LineChart, MonitorSmartphone, GitBranch, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Navbar from "@/components/layout/Navbar";
@@ -11,28 +11,28 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const skills = [
-  { Icon: Code2, title: "Frontend Development", description: "React, Next.js, TypeScript" },
-  { Icon: Palette, title: "UI/UX Design", description: "Figma, Design Systems" },
-  { Icon: Zap, title: "Performance", description: "Optimization & Best Practices" },
+  { Icon: Code2, title: "Frontend Development", description: "React, Next.js, HTML5, CSS3, Tailwind" },
+  { Icon: Palette, title: "UI/UX Design", description: "Figma, Wireframing, Prototyping, Visual Design" },
+  { Icon: Search, title: "User Research", description: "Information Architecture (IA), User Flows, Usability Testing" },
   { Icon: Users, title: "Collaboration", description: "Team Work & Communication" },
   { Icon: Award, title: "Quality", description: "Clean Code & Testing" },
   { Icon: Target, title: "Problem Solving", description: "Creative Solutions" },
-  { Icon: Database, title: "Database & SQL", description: "SQL, PostgreSQL, Database Management" },
-  { Icon: Smartphone, title: "Mobile Development", description: "Flutter, Dart, Cross-platform" },
-  { Icon: GitBranch, title: "CI/CD & DevOps", description: "Vercel, Automated Deployment" },
+  { Icon: LineChart, title: "Business Analysis", description: "Agile/Scrum, Requirement Analysis, Process Management" },
+  { Icon: MonitorSmartphone, title: "Responsive Design", description: "Mobile-First Approach, Grid Systems, Cross-platform" },
+  { Icon: GitBranch, title: "Version Control", description: "Git, GitHub, Vercel Deployment" },
 ];
 
 const projects = [
   {
     id: 1,
-    title: "JavaScript Documentation Website",
+    title: "Inventory Management Mobile App",
     description:
-      "A comprehensive JavaScript documentation website with interactive examples and detailed explanations.",
-    image: "bg-gradient-to-br from-black to-gray-700",
-    imageUrl: "/img/project/js-documentation.png",
-    technologies: ["HTML", "CSS", "JavaScript"],
-    github: "https://github.com/DatNgyM/JS-Document-Website",
-    live: "https://datngym.github.io/JS-Document-Website/",
+      "A mobile inventory dashboard with metrics, product highlights, and intuitive navigation—designed in Figma for a clear, modern UX.",
+    image: "bg-gradient-to-br from-gray-700 to-black",
+    imageUrl: "/img/project/Inventory%20Management%20Mobile.png",
+    technologies: ["Figma", "UI/UX", "Mobile App"],
+    github: "#",
+    live: "https://www.figma.com/proto/PKOKcbFaQKtCcotxu0uI9S/Qu%E1%BA%A3n-l%C3%BD-kho?node-id=189-392&viewport=532%2C189%2C0.3&t=xM7xtC8FQQ6o1qiH-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=189%3A392&page-id=189%3A391",
   },
   {
     id: 2,
@@ -47,14 +47,14 @@ const projects = [
   },
   {
     id: 3,
-    title: "Portfolio Website",
+    title: "JavaScript Documentation Website",
     description:
-      "A stunning portfolio website showcasing creative work with smooth animations and modern design.",
-    image: "bg-gradient-to-br from-gray-700 to-black",
-    imageUrl: "/img/project/portfolio.png",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    github: "https://github.com/DatNgyM/Porfolio",
-    live: "https://nguyenminhdat.vercel.app/",
+      "A comprehensive JavaScript documentation website with interactive examples and detailed explanations.",
+    image: "bg-gradient-to-br from-black to-gray-700",
+    imageUrl: "/img/project/js-documentation.png",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/DatNgyM/JS-Document-Website",
+    live: "https://datngym.github.io/JS-Document-Website/",
   },
   {
     id: 4,
@@ -148,10 +148,10 @@ export default function AboutPage() {
                   className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white/20 dark:border-gray-700/20 shadow-lg"
                 >
                   <Image
-                    src="/img/p_v2.jpg"
+                    src="/img/portrait.jpg"
                     alt="Profile"
                     fill
-                    className="object-cover"
+                    className="object-cover object-[center_28%]"
                     priority
                   />
                 </motion.div>
@@ -327,7 +327,7 @@ export default function AboutPage() {
                   <h2 className="text-2xl font-bold gradient-text-2">{t.about.certifications}</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* Certification Item 1 */}
+                  {/* Visual Elements of UI Design — CalArts (Coursera) */}
                   <motion.div
                     whileHover={{ scale: 1.02, y: -4 }}
                     className="group relative overflow-hidden rounded-xl border border-white/10 p-5 bg-gradient-to-br from-black/5 to-gray-600/5 hover:from-black/10 hover:to-gray-600/10 transition-all cursor-pointer"
@@ -338,16 +338,16 @@ export default function AboutPage() {
                       </div>
                       <div className="flex-1">
                         <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-1 group-hover:gradient-text transition-all">
-                          JavaScript Essentials 1
+                          Visual Elements of UI Design
                         </h3>
                         <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">
-                          Cisco Networking Academy
+                          CalArts (Coursera)
                         </p>
                         <p className="text-gray-500 dark:text-gray-500 text-xs mb-2">
-                          {t.about.issuedDate}: 23/12/2024
+                          {t.about.issuedDate}: 2025
                         </p>
                         <a
-                          href="/certificates/JavaScriptEssentials1Update20251223-30-7cig6a.pdf"
+                          href="/certificates/Visual%20Elements%20of%20User%20Interface%20Design.pdf"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1 text-xs text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
@@ -360,7 +360,7 @@ export default function AboutPage() {
                     </div>
                   </motion.div>
 
-                  {/* Certification Item 2 */}
+                  {/* UI/UX for Beginners — GreatLearning */}
                   <motion.div
                     whileHover={{ scale: 1.02, y: -4 }}
                     className="group relative overflow-hidden rounded-xl border border-white/10 p-5 bg-gradient-to-br from-black/5 to-gray-600/5 hover:from-black/10 hover:to-gray-600/10 transition-all cursor-pointer"
@@ -371,16 +371,16 @@ export default function AboutPage() {
                       </div>
                       <div className="flex-1">
                         <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-1 group-hover:gradient-text transition-all">
-                          Networking Basics
+                          UI/UX for Beginners
                         </h3>
                         <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">
-                          Cisco Networking Academy
+                          GreatLearning
                         </p>
                         <p className="text-gray-500 dark:text-gray-500 text-xs mb-2">
-                          {t.about.issuedDate}: 23/12/2024
+                          {t.about.issuedDate}: 2024
                         </p>
                         <a
-                          href="/certificates/NetworkingBasicsUpdate20251223-30-9x10ra.pdf"
+                          href="/certificates/UI-UX%20for%20Beginners.pdf"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1 text-xs text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
@@ -393,7 +393,7 @@ export default function AboutPage() {
                     </div>
                   </motion.div>
 
-                  {/* Certification Item 3 */}
+                  {/* Business Analysis & Process Management — Coursera */}
                   <motion.div
                     whileHover={{ scale: 1.02, y: -4 }}
                     className="group relative overflow-hidden rounded-xl border border-white/10 p-5 bg-gradient-to-br from-black/5 to-gray-600/5 hover:from-black/10 hover:to-gray-600/10 transition-all cursor-pointer"
@@ -404,16 +404,16 @@ export default function AboutPage() {
                       </div>
                       <div className="flex-1">
                         <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-1 group-hover:gradient-text transition-all">
-                          JavaScript Essentials 2
+                          Business Analysis & Process Management
                         </h3>
                         <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">
-                          Cisco Networking Academy
+                          Coursera
                         </p>
                         <p className="text-gray-500 dark:text-gray-500 text-xs mb-2">
-                          {t.about.issuedDate}: 26/12/2024
+                          {t.about.issuedDate}: 2025
                         </p>
                         <a
-                          href="/certificates/JavaScriptEssentials2Update20251226-31-xtgmtt.pdf"
+                          href="/certificates/Coursera_%20Business%20Analysis%20%26%20Process%20Management.pdf"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1 text-xs text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
@@ -426,9 +426,39 @@ export default function AboutPage() {
                     </div>
                   </motion.div>
 
-                  {/* Add more certifications by duplicating the certification item above */}
+                  {/* Analysis for Business Systems — Univ. of Minnesota (Coursera) */}
+                  <motion.div
+                    whileHover={{ scale: 1.02, y: -4 }}
+                    className="group relative overflow-hidden rounded-xl border border-white/10 p-5 bg-gradient-to-br from-black/5 to-gray-600/5 hover:from-black/10 hover:to-gray-600/10 transition-all cursor-pointer"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="p-2 rounded-lg bg-gradient-to-br from-black/20 to-gray-600/20 group-hover:from-black/30 group-hover:to-gray-600/30 transition-all">
+                        <Award className="w-5 h-5 text-black dark:text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-1 group-hover:gradient-text transition-all">
+                          Analysis for Business Systems
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">
+                          Univ. of Minnesota (Coursera)
+                        </p>
+                        <p className="text-gray-500 dark:text-gray-500 text-xs mb-2">
+                          {t.about.issuedDate}: 2025
+                        </p>
+                        <a
+                          href="/certificates/Analysis%20for%20Business%20Systems.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          {t.about.viewCertificate}
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      </div>
+                    </div>
+                  </motion.div>
                 </div>
-                {/* Note: Bạn có thể thêm nhiều chứng chỉ bằng cách duplicate certification item trên */}
               </motion.div>
             </motion.div>
 
@@ -554,21 +584,23 @@ export default function AboutPage() {
                             />
                           </Button>
                         </motion.a>
-                        <motion.a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            className="glass dark:glass-dark"
+                        {project.github !== "#" && (
+                          <motion.a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
+                            whileTap={{ scale: 0.95 }}
                           >
-                            <Github className="w-4 h-4" />
-                          </Button>
-                        </motion.a>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              className="glass dark:glass-dark"
+                            >
+                              <Github className="w-4 h-4" />
+                            </Button>
+                          </motion.a>
+                        )}
                       </div>
                     </div>
 
