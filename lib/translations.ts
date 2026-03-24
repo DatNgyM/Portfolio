@@ -11,9 +11,9 @@ export const translations = {
     hero: {
       titleLine1: "UI/UX DESIGNER &",
       titleLine2: "FRONTEND DEVELOPER",
-      subtitle: "I'm a creative Frontend Developer who transforms ideas into digital reality. With a passion for clean code and beautiful design, I craft beautiful, functional, and user-centered web experiences using modern web technologies.",
-      cleanCode: "clean code",
-      beautifulDesign: "beautiful design",
+      subtitle: "I'm a creative UI/UX Designer who transforms user needs into intuitive digital realities. With a strong foundation in visual design and frontend development, I craft beautiful, functional, and user-centered experiences from wireframes to clean code.",
+      cleanCode: "visual design",
+      beautifulDesign: "clean code",
       viewProjects: "View Projects",
       contactMe: "Contact Me",
       features: {
@@ -91,9 +91,9 @@ export const translations = {
     hero: {
       titleLine1: "THIẾT KẾ UI/UX &",
       titleLine2: "LẬP TRÌNH FRONTEND",
-      subtitle: "Tôi là một Frontend Developer sáng tạo, biến ý tưởng thành hiện thực số. Với niềm đam mê về code sạch và thiết kế đẹp, tôi tạo ra những trải nghiệm web đẹp, chức năng và tập trung vào người dùng bằng các công nghệ web hiện đại.",
-      cleanCode: "code sạch",
-      beautifulDesign: "thiết kế đẹp",
+      subtitle: "Tôi là một UI/UX Designer sáng tạo, biến nhu cầu người dùng thành những trải nghiệm số trực quan. Với nền tảng vững về thiết kế trực quan và phát triển frontend, tôi kiến tạo trải nghiệm đẹp, chức năng và lấy người dùng làm trung tâm, từ wireframe đến code sạch.",
+      cleanCode: "thiết kế trực quan",
+      beautifulDesign: "code sạch",
       viewProjects: "Xem Dự Án",
       contactMe: "Liên Hệ",
       features: {

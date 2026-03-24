@@ -73,17 +73,29 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-in-out" />
               
               <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-200 font-light max-w-2xl mx-auto leading-relaxed">
-                {t.hero.subtitle.includes(t.hero.cleanCode) ? (
-                  <>
-                    {t.hero.subtitle.split(t.hero.cleanCode)[0]}
-                    <span className="font-semibold text-black dark:text-white">{t.hero.cleanCode}</span>
-                    {t.hero.subtitle.split(t.hero.cleanCode)[1]?.split(t.hero.beautifulDesign)[0]}
-                    <span className="font-semibold text-gray-600 dark:text-gray-300">{t.hero.beautifulDesign}</span>
-                    {t.hero.subtitle.split(t.hero.beautifulDesign)[1]}
-                  </>
-                ) : (
-                  t.hero.subtitle
-                )}
+                {(() => {
+                  const s = t.hero.subtitle;
+                  const a = t.hero.cleanCode;
+                  const b = t.hero.beautifulDesign;
+                  const ia = s.indexOf(a);
+                  const ib = s.indexOf(b);
+                  if (ia === -1 || ib === -1) return s;
+                  const i1 = Math.min(ia, ib);
+                  const i2 = Math.max(ia, ib);
+                  const firstPhrase = ia < ib ? a : b;
+                  const secondPhrase = ia < ib ? b : a;
+                  const firstLen = firstPhrase.length;
+                  const secondLen = secondPhrase.length;
+                  return (
+                    <>
+                      {s.slice(0, i1)}
+                      <span className="font-semibold text-black dark:text-white">{firstPhrase}</span>
+                      {s.slice(i1 + firstLen, i2)}
+                      <span className="font-semibold text-gray-600 dark:text-gray-300">{secondPhrase}</span>
+                      {s.slice(i2 + secondLen)}
+                    </>
+                  );
+                })()}
               </p>
             </div>
           </motion.div>
