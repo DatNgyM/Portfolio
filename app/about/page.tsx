@@ -11,8 +11,8 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const skills = [
-  { Icon: Code2, title: "Frontend Development", description: "React, Next.js, HTML5, CSS3, Tailwind" },
   { Icon: Palette, title: "UI/UX Design", description: "Figma, Wireframing, Prototyping, Visual Design" },
+  { Icon: Code2, title: "Frontend Development", description: "React, Next.js, HTML5, CSS3, Tailwind" },
   { Icon: Search, title: "User Research", description: "Information Architecture (IA), User Flows, Usability Testing" },
   { Icon: Users, title: "Collaboration", description: "Team Work & Communication" },
   { Icon: Award, title: "Quality", description: "Clean Code & Testing" },
@@ -209,7 +209,7 @@ export default function AboutPage() {
                   <Briefcase className="w-5 h-5 text-gray-600 dark:text-gray-400" />
                   <div>
                     <p className="text-sm text-gray-500 dark:text-gray-500">{t.about.position}</p>
-                    <p className="text-gray-800 dark:text-gray-200 font-medium">Frontend Developer</p>
+                    <p className="text-gray-800 dark:text-gray-200 font-medium">UI/UX Designer</p>
                   </div>
                 </div>
               </div>

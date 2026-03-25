@@ -108,9 +108,9 @@ export default function Hero() {
             className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 w-full max-w-4xl"
           >
             {[
-              { icon: Code, title: t.hero.features.cleanCode.title, desc: t.hero.features.cleanCode.desc, color: "from-gray-600/20 to-gray-400/20", iconColor: "text-gray-700 dark:text-gray-300" },
               { icon: Palette, title: t.hero.features.modernUI.title, desc: t.hero.features.modernUI.desc, color: "from-black/20 to-gray-600/20", iconColor: "text-black dark:text-white" },
               { icon: Zap, title: t.hero.features.fastPerformance.title, desc: t.hero.features.fastPerformance.desc, color: "from-gray-800/20 to-gray-500/20", iconColor: "text-gray-800 dark:text-gray-200" },
+              { icon: Code, title: t.hero.features.cleanCode.title, desc: t.hero.features.cleanCode.desc, color: "from-gray-600/20 to-gray-400/20", iconColor: "text-gray-700 dark:text-gray-300" },
             ].map((item, i) => (
               <motion.div
                 key={item.title}

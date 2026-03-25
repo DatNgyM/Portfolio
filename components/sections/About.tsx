@@ -8,8 +8,8 @@ import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const skills = [
-  { Icon: Code2, title: "Frontend Development", description: "React, Next.js, HTML5, CSS3, Tailwind" },
   { Icon: Palette, title: "UI/UX Design", description: "Figma, Wireframing, Prototyping, Visual Design" },
+  { Icon: Code2, title: "Frontend Development", description: "React, Next.js, HTML5, CSS3, Tailwind" },
   { Icon: Search, title: "User Research", description: "Information Architecture (IA), User Flows, Usability Testing" },
   { Icon: Users, title: "Collaboration", description: "Team Work & Communication" },
   { Icon: Award, title: "Quality", description: "Clean Code & Testing" },
@@ -169,10 +169,7 @@ export default function About() {
               className="glass dark:glass-dark rounded-2xl p-6 max-w-3xl mx-auto"
             >
               <p className="text-lg md:text-xl text-gray-700 dark:text-gray-200 leading-relaxed">
-                I&apos;m a passionate developer and designer who loves creating
-                beautiful, functional, and user-centered digital experiences.
-                With a keen eye for detail and a commitment to excellence, I
-                bring ideas to life through code and design.
+                I&apos;m a creative UI/UX Designer who transforms user needs into intuitive digital realities. With a strong foundation in visual design and frontend development, I craft beautiful, functional, and user-centered experiences from wireframes to clean code.
               </p>
             </motion.div>
           </motion.div>
@@ -209,7 +206,7 @@ export default function About() {
                 <Briefcase className="w-5 h-5 text-gray-600 dark:text-gray-400" />
                 <div>
                   <p className="text-sm text-gray-500 dark:text-gray-500">Position</p>
-                  <p className="text-gray-800 dark:text-gray-200 font-medium">Frontend Developer</p>
+                  <p className="text-gray-800 dark:text-gray-200 font-medium">UI/UX Designer</p>
                 </div>
               </div>
             </div>

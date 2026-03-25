@@ -18,22 +18,22 @@ export const translations = {
       contactMe: "Contact Me",
       features: {
         cleanCode: {
-          title: "Clean Code",
-          desc: "Optimized & Scalable"
+          title: "Design Handoff",
+          desc: "Specs, components & clear delivery"
         },
         modernUI: {
-          title: "Modern UI",
-          desc: "Pixel Perfect Design"
+          title: "Responsive UI Design",
+          desc: "Mobile-first & accessibility-friendly layouts"
         },
         fastPerformance: {
-          title: "Fast Performance",
-          desc: "Lightning Speed"
+          title: "Interactive Prototyping",
+          desc: "Clickable flows, micro-interactions & testing"
         }
       }
     },
     about: {
       title: "About Me",
-      description: "I'm a passionate developer and designer who loves creating beautiful, functional, and user-centered digital experiences. With a keen eye for detail and a commitment to excellence, I bring ideas to life through code and design.",
+      description: "I'm a creative UI/UX Designer who transforms user needs into intuitive digital realities. With a strong foundation in visual design and frontend development, I craft beautiful, functional, and user-centered experiences from wireframes to clean code.",
       personalInfo: "Personal Information",
       email: "Email",
       location: "Location",
@@ -98,16 +98,16 @@ export const translations = {
       contactMe: "Liên Hệ",
       features: {
         cleanCode: {
-          title: "Code Sạch",
-          desc: "Tối Ưu & Mở Rộng"
+          title: "Design Handoff",
+          desc: "Thông số, component & bàn giao rõ ràng"
         },
         modernUI: {
-          title: "Giao Diện Hiện Đại",
-          desc: "Thiết Kế Hoàn Hảo"
+          title: "Responsive UI Design",
+          desc: "Mobile-first & bố cục tối ưu"
         },
         fastPerformance: {
-          title: "Hiệu Năng Cao",
-          desc: "Tốc Độ Nhanh"
+          title: "Interactive Prototyping",
+          desc: "Luồng click-through, micro-interactions & kiểm thử"
         }
       }
     },
