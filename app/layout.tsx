@@ -7,25 +7,25 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "Portfolio | Developer Blog",
+    default: "Portfolio | UI/UX Designer & Frontend Developer",
     template: "%s | Portfolio",
   },
-  description: "Portfolio website và blog chia sẻ kiến thức về Java, JavaScript và Network Programming",
-  keywords: ["portfolio", "developer", "blog", "Java", "JavaScript", "programming"],
-  authors: [{ name: "Your Name" }],
-  creator: "Your Name",
+  description: "UI/UX Designer & Frontend Developer",
+  keywords: ["portfolio", "ui ux", "frontend developer", "product design", "figma", "design to code"],
+  authors: [{ name: "Nguyen Minh Dat" }],
+  creator: "Nguyen Minh Dat",
   openGraph: {
     type: "website",
     locale: "vi_VN",
-    url: "https://your-portfolio.vercel.app",
-    siteName: "Portfolio",
-    title: "Portfolio | Developer Blog",
-    description: "Portfolio website và blog chia sẻ kiến thức về Java, JavaScript và Network Programming",
+    url: "https://nguyenminhdat.vercel.app",
+    siteName: "Nguyen Minh Dat Portfolio",
+    title: "Portfolio | UI/UX Designer & Frontend Developer",
+    description: "UI/UX Designer & Frontend Developer",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Portfolio | Developer Blog",
-    description: "Portfolio website và blog chia sẻ kiến thức về Java, JavaScript và Network Programming",
+    title: "Portfolio | UI/UX Designer & Frontend Developer",
+    description: "UI/UX Designer & Frontend Developer",
   },
   robots: {
     index: true,
